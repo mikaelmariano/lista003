@@ -22,7 +22,12 @@ public class Programa {
         Ex04ConversorDolarReal.executar();
         break;  
 
+        case 5:
+        Ex05lojaMamao.executar();
+        break;
+
         default:
+
             System.out.println("Exercício não encontrado!");
             break;
         }
