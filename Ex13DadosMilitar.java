@@ -1,44 +1,37 @@
+import br.edu.up.modelos.Pessoa13;
 import java.util.Scanner;
 
-//13. Escrever um programa que leia os dados de “N” pessoas (nome, sexo, idade e saúde) e informese está apta ou 
-//    não para cumprir o serviço militar obrigatório. Informe os totais.
- 
 public class Ex13DadosMilitar {
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Quantas pessoas deseja verificar?");
-        int totalPessoas = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer do scanner
+        System.out.print("Quantas pessoas você deseja verificar? ");
+        int quantidadePessoas = scanner.nextInt();
+        scanner.nextLine(); 
 
-        int aptos = 0;
-        int naoAptos = 0;
+        Pessoa13[] pessoas = new Pessoa13[quantidadePessoas];
 
-        for (int i = 1; i <= totalPessoas; i++) {
-            System.out.println("Informe o nome da pessoa " + i + ":");
+        for (int i = 0; i < quantidadePessoas; i++) {
+            System.out.print("Digite o nome da pessoa " + (i + 1) + ": ");
             String nome = scanner.nextLine();
 
-            System.out.println("Informe o sexo da pessoa (M para masculino, F para feminino):");
-            char sexo = scanner.nextLine().charAt(0);
+            System.out.print("Digite o sexo da pessoa (M/F): ");
+            char sexo = scanner.next().charAt(0);
+            scanner.nextLine(); 
 
-            System.out.println("Informe a idade da pessoa:");
+            System.out.print("Digite a idade da pessoa: ");
             int idade = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer do scanner
+            scanner.nextLine(); 
 
-            System.out.println("Informe o estado de saúde da pessoa (S para saudável, N para não saudável):");
-            char saude = scanner.nextLine().charAt(0);
+            System.out.print("A pessoa tem boa saúde? (true/false): ");
+            boolean saude = scanner.nextBoolean();
+            scanner.nextLine(); 
 
-            if ((sexo == 'M' || sexo == 'm') && idade >= 18 && saude == 'S' || saude == 's') {
-                System.out.println(nome + " está apto para o serviço militar obrigatório.");
-                aptos++;
-            } else {
-                System.out.println(nome + " não está apto para o serviço militar obrigatório.");
-                naoAptos++;
-            }
+            pessoas[i] = new Pessoa13(nome, sexo, idade, saude);
         }
 
-        System.out.println("Total de pessoas aptas: " + aptos);
-        System.out.println("Total de pessoas não aptas: " + naoAptos);
+        Pessoa13.contarAptos(pessoas);
+
+        scanner.close();
     }
 }
-

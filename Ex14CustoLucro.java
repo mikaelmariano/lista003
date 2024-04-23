@@ -1,40 +1,32 @@
+import br.edu.up.modelos.Produto14;
 import java.util.Scanner;
 
 //14. Faça um programa que receba o preço de custo e o preço de venda de 40 produtos. Mostre como resultado se 
 //    houve lucro, prejuízo ou empate para cada produto. Informe média de preço decusto e do preço de venda.
 
 public class Ex14CustoLucro {
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        double totalPrecoCusto = 0;
-        double totalPrecoVenda = 0;
+        Produto14[] produtos = new Produto14[40];
 
-        for (int i = 1; i <= 40; i++) {
-            System.out.println("Produto " + i + ":");
-            System.out.println("Informe o preço de custo:");
+        for (int i = 0; i < 40; i++) {
+            System.out.print("Digite o preço de custo do produto " + (i + 1) + ": ");
             double precoCusto = scanner.nextDouble();
 
-            System.out.println("Informe o preço de venda:");
+            System.out.print("Digite o preço de venda do produto " + (i + 1) + ": ");
             double precoVenda = scanner.nextDouble();
 
-            totalPrecoCusto += precoCusto;
-            totalPrecoVenda += precoVenda;
-
-            if (precoVenda > precoCusto) {
-                System.out.println("Produto " + i + ": Lucro");
-            } else if (precoVenda < precoCusto) {
-                System.out.println("Produto " + i + ": Prejuízo");
-            } else {
-                System.out.println("Produto " + i + ": Empate");
-            }
+            produtos[i] = new Produto14(precoCusto, precoVenda);
         }
 
-        double mediaPrecoCusto = totalPrecoCusto / 40;
-        double mediaPrecoVenda = totalPrecoVenda / 40;
+        for (int i = 0; i < 40; i++) {
+            System.out.println("Produto " + (i + 1) + ":");
+            produtos[i].calcularLucroPrejuizoEmpate();
+        }
 
-        System.out.println("Média de preço de custo: " + mediaPrecoCusto);
-        System.out.println("Média de preço de venda: " + mediaPrecoVenda);
+        Produto14.calcularMedias(produtos);
+
+        scanner.close();
     }
 }
-

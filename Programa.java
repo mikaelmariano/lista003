@@ -7,8 +7,8 @@ public class Programa {
 
     switch (numex) {
         case 1:
-            Ex01Aluno.executar();
-            break;
+        Ex01Aluno.executar();
+        break;
         
         case 2:
         Ex02ConsumoMedio.executar();
@@ -44,6 +44,22 @@ public class Programa {
 
         case 10:
         Ex10IdadeNumero.executar();
+        break;
+
+        case 11:
+        Ex11NomeSexo.executar();
+        break;
+
+        case 12:
+        Ex12CalculoDesconto.executar();
+        break;
+
+        case 13:
+        Ex13DadosMilitar.executar();
+        break;
+
+        case 14:
+        Ex14CustoLucro.executar();
         break;
 
 
