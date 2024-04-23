@@ -1,3 +1,4 @@
+import br.edu.up.modelos.Funcionario17;
 import java.util.Scanner;
 
 //17. Leia o nome do funcionário, seu salário e o valor do salário mínimo. Calcule o seu novo salário reajustado.
@@ -5,32 +6,24 @@ import java.util.Scanner;
 //    folha de pagamento.
 
 public class Ex17CalculoNovoSalario {
-
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        // Leitura do nome do funcionário
-        System.out.print("Nome do funcionário: ");
-        String nomeFuncionario = scanner.nextLine();
+        System.out.print("Digite o nome do funcionário: ");
+        String nome = scanner.nextLine();
 
-        // Leitura do salário atual
-        System.out.print("Salário atual: R$ ");
-        double salarioAtual = scanner.nextDouble();
+        System.out.print("Digite o salário do funcionário: ");
+        double salario = scanner.nextDouble();
 
-        // Leitura do valor do salário mínimo
-        System.out.print("Valor do salário mínimo: R$ ");
-        double valorSalarioMinimo = scanner.nextDouble();
+        System.out.print("Digite o valor do salário mínimo: ");
+        double salarioMinimo = scanner.nextDouble();
 
-        // Cálculo do reajuste
-        double reajuste = salarioAtual * (valorSalarioMinimo / 100);
+        Funcionario17 funcionario = new Funcionario17(nome, salario, salarioMinimo);
+        double novoSalario = funcionario.calcularReajuste();
 
-        // Cálculo do novo salário
-        double novoSalario = salarioAtual + reajuste;
+        System.out.println("\nInformações do funcionário:");
+        funcionario.mostrarInformacoes(novoSalario);
 
-        // Exibição dos resultados
-        System.out.println("\nNome do funcionário: " + nomeFuncionario);
-        System.out.printf("Reajuste: R$ %.2f\n", reajuste);
-        System.out.printf("Novo salário: R$ %.2f\n", novoSalario);
+        scanner.close();
     }
 }
-

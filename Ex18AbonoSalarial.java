@@ -1,4 +1,6 @@
+import br.edu.up.modelos.Funcionario18;
 import java.util.Scanner;
+
 
 //18. Faça um programa que receba o nome a idade, o sexo e salário fixo de um funcionário. Mostreo nome e o 
 //    salário líquido acrescido do abono conforme o sexo e a idade:
@@ -9,48 +11,24 @@ import java.util.Scanner;
 //         < 30   80,00
 
 public class Ex18AbonoSalarial {
-
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        // Leitura do nome do funcionário
-        System.out.print("Nome do funcionário: ");
-        String nomeFuncionario = scanner.nextLine();
+        System.out.print("Digite o nome do funcionário: ");
+        String nome = scanner.nextLine();
 
-        // Leitura da idade do funcionário
-        System.out.print("Idade do funcionário: ");
-        int idadeFuncionario = scanner.nextInt();
+        System.out.print("Digite a idade do funcionário: ");
+        int idade = scanner.nextInt();
 
-        // Leitura do sexo do funcionário
-        System.out.print("Sexo do funcionário (M/F): ");
-        String sexoFuncionario = scanner.next().toUpperCase();
+        System.out.print("Digite o sexo do funcionário (M/F): ");
+        char sexo = scanner.next().charAt(0);
 
-        // Leitura do salário fixo do funcionário
-        System.out.print("Salário fixo do funcionário: R$ ");
+        System.out.print("Digite o salário fixo do funcionário: ");
         double salarioFixo = scanner.nextDouble();
 
-        // Cálculo do abono
-        double abono = 0;
-        if (sexoFuncionario.equals("M")) {
-            if (idadeFuncionario >= 30) {
-                abono = 100.00;
-            } else {
-                abono = 50.00;
-            }
-        } else if (sexoFuncionario.equals("F")) {
-            if (idadeFuncionario >= 30) {
-                abono = 200.00;
-            } else {
-                abono = 80.00;
-            }
-        }
+        Funcionario18 funcionario = new Funcionario18(nome, idade, sexo, salarioFixo);
+        funcionario.mostrarInformacoes();
 
-        // Cálculo do salário líquido
-        double salarioLiquido = salarioFixo + abono;
-
-        // Exibição dos resultados
-        System.out.println("\nNome do funcionário: " + nomeFuncionario);
-        System.out.printf("Abono: R$ %.2f\n", abono);
-        System.out.printf("Salário líquido: R$ %.2f\n", salarioLiquido);
+        scanner.close();
     }
 }

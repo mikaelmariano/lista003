@@ -70,6 +70,13 @@ public class Programa {
         Ex16ReajusteSalarial.executar();
         break;
 
+        case 17:
+        Ex17CalculoNovoSalario.executar();
+        break;
+
+        case 18:
+        Ex18AbonoSalarial.executar();
+        break;
 
         default:
 
