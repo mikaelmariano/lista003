@@ -26,6 +26,27 @@ public class Programa {
         Ex05lojaMamao.executar();
         break;
 
+        case 6:
+        Ex06CalculoPrecoVenda.executar();
+        break;
+
+        case 7:
+        Ex07CustoCarro.executar();
+        break;
+
+        case 8:
+        Ex08CalculoMedio.executar();
+        break;
+
+        case 9:
+        Ex09Intervalo.executar();
+        break;
+
+        case 10:
+        Ex10IdadeNumero.executar();
+        break;
+
+
         default:
 
             System.out.println("Exercício não encontrado!");
