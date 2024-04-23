@@ -62,6 +62,14 @@ public class Programa {
         Ex14CustoLucro.executar();
         break;
 
+        case 15:
+        Ex15ConcessionariaCarango.executar();
+        break;
+
+        case 16:
+        Ex16ReajusteSalarial.executar();
+        break;
+
 
         default:
 

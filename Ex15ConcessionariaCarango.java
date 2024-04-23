@@ -1,3 +1,4 @@
+import br.edu.up.modelos.Veiculo15;
 import java.util.Scanner;
 
 //15. A concessionária de veículos “CARANGO” está vendendo os seus veículos com desconto. Façaum programa que 
@@ -6,66 +7,37 @@ import java.util.Scanner;
 //    veículo zero encerra entrada de dados.Informe total dedesconto e total pago pelos clientes.
 
 public class Ex15ConcessionariaCarango {
-
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        // Declaração de variáveis
+        System.out.println("Bem-vindo à concessionária CARANGO!");
+
+        Veiculo15[] veiculos = new Veiculo15[100];
+        int indice = 0;
         double totalDesconto = 0;
         double totalPago = 0;
 
-        // Loop para iterar sobre os veículos
         while (true) {
-            System.out.println("---------------------");
-            System.out.println("Novo Veículo");
-            System.out.println("---------------------");
+            System.out.print("Digite o tipo de combustível (álcool/gasolina/diesel): ");
+            String tipoCombustivel = scanner.nextLine();
 
-            // Leitura do valor do veículo
-            System.out.print("Valor do veículo: R$ ");
+            if (tipoCombustivel.equalsIgnoreCase("zero")) {
+                break; 
+            }
+
+            System.out.print("Digite o valor do veículo: ");
             double valorVeiculo = scanner.nextDouble();
+            scanner.nextLine();
 
-            // Se valor do veículo for zero, encerra a entrada de dados
-            if (valorVeiculo == 0) {
-                break;
-            }
-
-            // Leitura do tipo de combustível
-            System.out.print("Tipo de combustível (A/G/D): ");
-            String tipoCombustivel = scanner.next().toUpperCase();
-
-            // Cálculo do desconto
-            double desconto = 0;
-            switch (tipoCombustivel) {
-                case "A":
-                    desconto = valorVeiculo * 0.25;
-                    break;
-                case "G":
-                    desconto = valorVeiculo * 0.21;
-                    break;
-                case "D":
-                    desconto = valorVeiculo * 0.14;
-                    break;
-                default:
-                    System.out.println("Tipo de combustível inválido!");
-                    continue;
-            }
-
-            // Cálculo do valor a ser pago
-            double valorPago = valorVeiculo - desconto;
-
-            // Exibição do desconto e valor a ser pago
-            System.out.printf("Desconto: R$ %.2f\n", desconto);
-            System.out.printf("Valor a ser pago: R$ %.2f\n", valorPago);
-
-            // Acumulação do total de desconto e total pago
-            totalDesconto += desconto;
-            totalPago += valorPago;
+            veiculos[indice] = new Veiculo15(tipoCombustivel, valorVeiculo);
+            totalDesconto += veiculos[indice].getValorDesconto();
+            totalPago += veiculos[indice].calcularValorPago();
+            indice++;
         }
 
-        // Exibição do resumo das vendas
-        System.out.println("\nResumo das Vendas:");
-        System.out.println("---------------------");
-        System.out.printf("Total de desconto: R$ %.2f\n", totalDesconto);
-        System.out.printf("Total pago: R$ %.2f\n", totalPago);
+        System.out.println("Total de desconto: " + totalDesconto);
+        System.out.println("Total pago pelos clientes: " + totalPago);
+
+        scanner.close();
     }
 }
