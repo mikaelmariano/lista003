@@ -9,6 +9,14 @@ public class Programa {
         case 1:
             Ex01Aluno.executar();
             break;
+        
+        case 2:
+        Ex02ConsumoMedio.executar();
+        break;    
+
+        case 3:
+        Ex03NomeVendedor.executar();
+        break;    
 
         default:
             System.out.println("Exercício não encontrado!");
