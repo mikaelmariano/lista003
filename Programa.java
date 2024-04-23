@@ -16,7 +16,11 @@ public class Programa {
 
         case 3:
         Ex03NomeVendedor.executar();
-        break;    
+        break;
+        
+        case 4:
+        Ex04ConversorDolarReal.executar();
+        break;  
 
         default:
             System.out.println("Exercício não encontrado!");
