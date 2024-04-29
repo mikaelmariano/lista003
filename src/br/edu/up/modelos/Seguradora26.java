@@ -1,7 +1,7 @@
 package br.edu.up.modelos;
 
 public class Seguradora26 {
-    //private String nome;
+    private String nome;
     private int idade;
     private String grupoRisco;
 
