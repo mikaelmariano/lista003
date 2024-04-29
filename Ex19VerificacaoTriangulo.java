@@ -1,3 +1,4 @@
+import br.edu.up.modelos.Triangulo19;
 import java.util.Scanner;
 
 //19. Escrever um programa que leia três valores inteiros e verifique se eles podem ser os lados deum triângulo.
@@ -9,30 +10,22 @@ import java.util.Scanner;
 //    Triângulo Escaleno: aquele que tem os comprimentos de seus três lados diferentes.
 
 public class Ex19VerificacaoTriangulo {
-
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        // Leitura dos lados do triângulo
-        System.out.print("Digite o valor do primeiro lado: ");
-        int ladoA = scanner.nextInt();
-        System.out.print("Digite o valor do segundo lado: ");
-        int ladoB = scanner.nextInt();
-        System.out.print("Digite o valor do terceiro lado: ");
-        int ladoC = scanner.nextInt();
+        System.out.println("Digite os três lados do triângulo:");
+        System.out.print("Lado 1: ");
+        int lado1 = scanner.nextInt();
+        System.out.print("Lado 2: ");
+        int lado2 = scanner.nextInt();
+        System.out.print("Lado 3: ");
+        int lado3 = scanner.nextInt();
 
-        // Verificação se os valores formam um triângulo
-        if (ladoA + ladoB > ladoC && ladoA + ladoC > ladoB && ladoB + ladoC > ladoA) {
-            // Verificação do tipo de triângulo
-            if (ladoA == ladoB && ladoB == ladoC) {
-                System.out.println("Triângulo equilátero!");
-            } else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC) {
-                System.out.println("Triângulo isóscele!");
-            } else {
-                System.out.println("Triângulo escaleno!");
-            }
-        } else {
-            System.out.println("Os valores não formam um triângulo!");
-        }
+        Triangulo19 triangulo = new Triangulo19(lado1, lado2, lado3);
+        String tipoTriangulo = triangulo.verificarTipoTriangulo();
+
+        System.out.println("O triângulo é do tipo: " + tipoTriangulo);
+
+        scanner.close();
     }
 }

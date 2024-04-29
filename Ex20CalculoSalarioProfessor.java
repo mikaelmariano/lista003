@@ -1,3 +1,4 @@
+import br.edu.up.modelos.Professor20;
 import java.util.Scanner;
 
 //20. A escola “APRENDER” faz o pagamento de seus professores por hora/aula. Faça um programaque calcule e exiba
@@ -5,48 +6,22 @@ import java.util.Scanner;
 //    Professor Nível 1 R$12,00 por hora/aula
 //    Professor Nível 2 R$17,00 por hora/aula
 //    Professor Nível 3 R$25,00 por hora/aula
-
 public class Ex20CalculoSalarioProfessor {
 
-    public static void main(String[] args) {
+    public static void executar() {
         Scanner scanner = new Scanner(System.in);
 
-        // Leitura do nome do professor
-        System.out.print("Nome do professor: ");
-        String nomeProfessor = scanner.nextLine();
+        System.out.print("Digite o nível do professor (1, 2 ou 3): ");
+        int nivel = scanner.nextInt();
 
-        // Leitura do nível do professor
-        System.out.print("Nível do professor (1, 2 ou 3): ");
-        int nivelProfessor = scanner.nextInt();
-
-        // Leitura do número de horas/aula
-        System.out.print("Número de horas/aula: ");
+        System.out.print("Digite a quantidade de horas/aula: ");
         int horasAula = scanner.nextInt();
 
-        // Cálculo do valor da hora/aula
-        double valorHoraAula = 0;
-        switch (nivelProfessor) {
-            case 1:
-                valorHoraAula = 12.00;
-                break;
-            case 2:
-                valorHoraAula = 17.00;
-                break;
-            case 3:
-                valorHoraAula = 25.00;
-                break;
-            default:
-                System.out.println("Nível inválido!");
-                return;
-        }
+        Professor20 professor = new Professor20(nivel);
+        double salario = professor.calcularSalario(horasAula);
 
-        // Cálculo do salário
-        double salario = valorHoraAula * horasAula;
+        System.out.println("O salário do professor é: R$" + salario);
 
-        // Exibição dos resultados
-        System.out.println("\nNome do professor: " + nomeProfessor);
-        System.out.printf("Valor da hora/aula: R$ %.2f\n", valorHoraAula);
-        System.out.printf("Número de horas/aula: %d\n", horasAula);
-        System.out.printf("Salário: R$ %.2f\n", salario);
+        scanner.close();
     }
 }

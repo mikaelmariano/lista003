@@ -78,6 +78,38 @@ public class Programa {
         Ex18AbonoSalarial.executar();
         break;
 
+        case 19:
+        Ex19VerificacaoTriangulo.executar();
+        break;
+
+        case 20:
+        Ex20CalculoSalarioProfessor.executar();
+        break;
+
+        case 21:
+        Ex21ClassificacaoNadador.executar();
+        break;
+
+        case 22:
+        Ex22CalculoContaLuz.executar();
+        break;
+
+        case 23:
+        Ex23CalculoPesoIdeal.executar();
+        break;
+
+        case 24:
+        Ex24CalculoNota.executar();
+        break;
+
+        case 25:
+        Ex25CalculoClassificacao.executar();
+        break;
+
+        case 26:
+        Ex26CalculoSegurado.executar();
+        break;
+
         default:
 
             System.out.println("Exercício não encontrado!");
